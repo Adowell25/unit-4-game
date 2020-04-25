@@ -37,7 +37,7 @@ $(document).ready(function(){
 });
 
 $("#blue").on("click", function(){
-    $("#userNum").append("Your total number is: " + randomNumber);
+    $("#userNum").text(randomNumber++);
 
 });
 
