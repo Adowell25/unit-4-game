@@ -1,6 +1,6 @@
-//The player will be shown a random number   
+//The player will be shown a computer generated random number   - done
 
-//Crystals will be assigned a specific number
+//Crystals will be assigned a specific number - 
 
 //When the player clicks on a crystal it will add a specific amout of points to the players total
 
@@ -20,38 +20,137 @@
 
 //Wins and losses should remain on the screen until the page is refreshed.
 
+$(document).ready(function(){   
+});
+
+
+//Global variables
+
 var wins = 0;
 var losses = 0;
-// var computerNumber = [];
-
-//for (var i =0; i<3; i++){
-var randomNumber = Math.floor(Math.random() * 12)+ 1;
-var computerNumber = Math.floor(Math.random() * 103)+19;
-computerNumber = randomNumber + computerNumber;
-
-//}
+var score = 0;
+$("userScore").html(score);
 
 
-$(document).ready(function(){
-    $("#computerRandoNum").text(computerNumber)
+//Computer generated random number
+var computerNumber = Math.floor(Math.random() * 101)+19;
+$("#computerRandoNum").html(computerNumber)
+
+
+// var crystalNumber = function(){
+//     var crystal_numbers = Math.floor(Math.random() * 12)+ 1;
+//     return crystal_numbers;
+//  }
+
+var blue = Math.floor(Math.random() * 12)+ 1;
+var green = Math.floor(Math.random() * 12)+ 1;
+var orange = Math.floor(Math.random() * 12)+ 1;
+var red = Math.floor(Math.random() * 12)+ 1;
+
+
+
+//Displays wins
+$("#wins").text("Wins: " + wins);
+
+//Display losses
+$("#losses").text("Losses: " + losses);
+
+
+var blueCrystal = $(".bluecrystal").on("click", function(){
+    //$("#userNum").text(randomNumber);
+    //var blueRandNum = Math.floor(Math.random() * 12)+ 1;
+    //console.log(blueRandNum)
+    score = score + blue;
+    $("#userScore").html(score)
+    if (score === computerNumber){
+        console.log("winner");
+        wins++;
+        $("#wins").text("Wins: " + wins);
+        resetNumbers(computerNumber);
+        resetUserScore();
+    } else if (score > computerNumber)
+        losses++;
+        $("#losses").text("Losses: " + losses);
+    // $("#userScore").text(crystalNumber);
 });
 
-$("#blue").on("click", function(){
-    $("#userNum").text(randomNumber++);
+
+
+var greenCrystal = $(".greencrystal").on("click", function(){
+    //$("#userNum").text(randomNumber++);
+    //var greenRandNum = Math.floor(Math.random() * 12)+ 1;
+    //console.log(greenRandNum)
+    //$("#userScore").text(crystalNumber);
+    score = score + green;
+    $("#userScore").html(score)
+    if (score === computerNumber){
+        wins++;
+        console.log("winner");
+        $("#wins").text("Wins: " + wins);
+        resetNumbers(computerNumber);
+        resetUserScore();
+    } else if (score > computerNumber)
+        losses++;
+        $("#losses").text("Losses: " + losses);
+        
+});
+
+var orangeCrystal = $(".orangecrystal").on("click", function(){
+    //$("#userNum").text(randomNumber++);
+    //var orangeRandNum = Math.floor(Math.random() * 12)+ 1;
+    //console.log(orangeRandNum)
+    //$("#userScore").text(crystalNumber);
+    score = score + orange;
+    $("#userScore").html(score)
+    if (score === computerNumber){
+        console.log("winner");
+        wins++;
+        $("#wins").text("Wins: " + wins);
+        resetNumbers(computerNumber);
+        resetUserScore();
+        computerNumber;
+    } else if (score > computerNumber)
+        losses++;
+        $("#losses").text("Losses: " + losses);
+
 
 });
 
-$("#green").on("click", function(){
-    $("#userNum").append("Your total number is: " + randomNumber);
+var redCrystal = $(".redcrystal").on("click", function(){
+    //$("#userNum").text(randomNumber++);
+    //var redRandNum = Math.floor(Math.random() * 12)+ 1;
+   // console.log(redRandNum)
+   // $("#userScore").text(crystalNumber);
+    score = score + red;
+    $("#userScore").html(score)
+    if (score === computerNumber){
+        console.log("winner");
+        wins++;
+        $("#wins").text("Wins: " + wins);
+        resetNumbers(computerNumber);
+        resetUserScore();
+    } else if (score > computerNumber)
+        losses++;
+        $("#losses").text("Losses: " + losses);
+        
 });
 
-$("#orange").on("click", function(){
-    alert("test");
-});
+function resetUserScore (){
+    score = 0;
+    $("userScore").html(score)
+}
 
-$("#red").on("click", function(){
-    alert("test");
-});
+function resetNumbers (){
+    computerNumber = Math.floor(Math.random() * 101)+19;
+    $("#computerRandoNum").html(computerNumber);
+
+    blue = Math.floor(Math.random() * 12)+ 1;
+    green = Math.floor(Math.random() * 12)+ 1;
+    orange = Math.floor(Math.random() * 12)+ 1;
+    red = Math.floor(Math.random() * 12)+ 1;
+
+}
+
 
 
 
