@@ -42,6 +42,7 @@ $("#computerRandoNum").html(computerNumber)
 //     return crystal_numbers;
 //  }
 
+//variables for crystals random number
 var blue = Math.floor(Math.random() * 12)+ 1;
 var green = Math.floor(Math.random() * 12)+ 1;
 var orange = Math.floor(Math.random() * 12)+ 1;
@@ -57,82 +58,83 @@ $("#losses").text("Losses: " + losses);
 
 
 var blueCrystal = $(".bluecrystal").on("click", function(){
-    //$("#userNum").text(randomNumber);
-    //var blueRandNum = Math.floor(Math.random() * 12)+ 1;
-    //console.log(blueRandNum)
     score = score + blue;
     $("#userScore").html(score)
     if (score === computerNumber){
-        console.log("winner");
+        alert("Winner! Totals will be reset on next selected crystal!");
         wins++;
         $("#wins").text("Wins: " + wins);
         resetNumbers(computerNumber);
         resetUserScore();
-    } else if (score > computerNumber)
+    } else if  (score > computerNumber){
+        alert("Loser! Totals will be reset on next selected crystal!");
         losses++;
         $("#losses").text("Losses: " + losses);
-    // $("#userScore").text(crystalNumber);
+        resetNumbers();
+        resetUserScore(); 
+    }
+    
 });
 
 
 
 var greenCrystal = $(".greencrystal").on("click", function(){
-    //$("#userNum").text(randomNumber++);
-    //var greenRandNum = Math.floor(Math.random() * 12)+ 1;
-    //console.log(greenRandNum)
-    //$("#userScore").text(crystalNumber);
     score = score + green;
     $("#userScore").html(score)
     if (score === computerNumber){
+        alert("Winner! Totals will be reset on next selected crystal!");
         wins++;
         console.log("winner");
         $("#wins").text("Wins: " + wins);
         resetNumbers(computerNumber);
         resetUserScore();
-    } else if (score > computerNumber)
+    } else if (score > computerNumber){
+        alert("Loser! Totals will be reset on next selected crystal!");
         losses++;
         $("#losses").text("Losses: " + losses);
-        
+        resetNumbers();
+        resetUserScore();
+    }
 });
 
 var orangeCrystal = $(".orangecrystal").on("click", function(){
-    //$("#userNum").text(randomNumber++);
-    //var orangeRandNum = Math.floor(Math.random() * 12)+ 1;
-    //console.log(orangeRandNum)
-    //$("#userScore").text(crystalNumber);
     score = score + orange;
     $("#userScore").html(score)
     if (score === computerNumber){
+        alert("Winner! Totals will be reset on next selected crystal!");
         console.log("winner");
         wins++;
         $("#wins").text("Wins: " + wins);
         resetNumbers(computerNumber);
         resetUserScore();
         computerNumber;
-    } else if (score > computerNumber)
+    } else if (score > computerNumber){
+        alert("Loser! Totals will be reset on next selected crystal!");
         losses++;
         $("#losses").text("Losses: " + losses);
+        resetNumbers();
+        resetUserScore();
 
-
+    }
 });
 
 var redCrystal = $(".redcrystal").on("click", function(){
-    //$("#userNum").text(randomNumber++);
-    //var redRandNum = Math.floor(Math.random() * 12)+ 1;
-   // console.log(redRandNum)
-   // $("#userScore").text(crystalNumber);
     score = score + red;
     $("#userScore").html(score)
     if (score === computerNumber){
+        alert("Winner! Totals will be reset on next selected crystal!");
         console.log("winner");
         wins++;
         $("#wins").text("Wins: " + wins);
         resetNumbers(computerNumber);
         resetUserScore();
-    } else if (score > computerNumber)
+    } else if (score > computerNumber){
+        alert("Loser! Totals will be reset on next selected crystal!");
         losses++;
         $("#losses").text("Losses: " + losses);
-        
+        resetNumbers();
+        resetUserScore();
+    }
 });
 
 function resetUserScore (){
